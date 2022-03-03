@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Tasks.init({
     name: DataTypes.STRING,
-    list_id: DataTypes.INTEGER,
+    ListId: {
+      type: DataTypes.INTEGER,
+      field: 'list_id',
+    },
   }, {
     sequelize,
     modelName: 'Tasks',
