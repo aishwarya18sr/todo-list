@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Lists, Users }) {
       UsersLists.hasOne(Lists, {
-        foreignKey: 'listId',
+        foreignKey: 'id',
         onDelete: 'cascade',
       });
       UsersLists.hasOne(Users, {
-        foreignKey: 'userId',
+        foreignKey: 'id',
         onDelete: 'cascade',
       });
       // define association here

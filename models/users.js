@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Lists, UsersLists }) {
       Users.belongsToMany(Lists, { through: UsersLists }, {
-        foreignKey: 'id',
+        // foreignKey: 'id',
       });
       // define association here
     }
