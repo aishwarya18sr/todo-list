@@ -1,4 +1,6 @@
-const { Tasks, Lists } = require('../../models');
+const {
+  Tasks, Lists, Users, UsersLists,
+} = require('../../models');
 
 const dbGetTodoList = async () => {
   const requiredTodoList = await Lists.findAll();
@@ -66,10 +68,12 @@ const dbCreateTodoTask = async (taskName, listId) => {
 };
 
 const dbUpdateTodoTask = async (taskId, taskName) => {
-  if (taskId === '') {
-    throw new Error('Id has not been provided');
+  if (taskId === '' || taskName === '') {
+    throw new Error('Empty input is not accepted');
   } else if (typeof taskId !== 'string' && typeof taskId !== 'number') {
-    throw new Error('Invalid input type');
+    throw new Error('Invalid input type for taskId');
+  } else if (typeof taskName !== 'string' && typeof taskName !== 'number') {
+    throw new Error('Invalid input type for taskName');
   }
   const result = await Tasks.update({
     name: taskName,
@@ -95,6 +99,40 @@ const dbDeleteTodoTask = async (taskId) => {
   return result;
 };
 
+const dbGetUserTodo = async (userId) => {
+  if (userId === '') {
+    throw new Error('Empty input is not accepted');
+  } else if (typeof userId !== 'string' && typeof userId !== 'number') {
+    throw new Error('Invalid input type for userId');
+  }
+  const requiredList = await UsersLists.findAll({
+    where: {
+      userId,
+    },
+  });
+  let listId;
+  const requiredTodoTaskList = [];
+  console.log(requiredList);
+  for (const [, value] of Object.entries(requiredList)) {
+    listId = value.dataValues.listId;
+    const todo = await dbGetTodoTask(listId);
+    requiredTodoTaskList.push(todo);
+  }
+  return requiredTodoTaskList;
+};
+
+const dbCreateUserList = async (userId, listId) => {
+  if (userId === '' || listId === '') {
+    throw new Error('Empty input is not accepted');
+  } else if (typeof userId !== 'string' && typeof userId !== 'number') {
+    throw new Error('Invalid input type for taskName');
+  } else if (typeof listId !== 'string' && typeof listId !== 'number') {
+    throw new Error('Invalid input type for listId');
+  }
+  const result = await UsersLists.create({ userId, listId });
+  return result;
+};
+
 module.exports = {
   dbGetTodoList,
   dbCreateTodoList,
@@ -103,4 +141,6 @@ module.exports = {
   dbGetTodoTaskById,
   dbUpdateTodoTask,
   dbDeleteTodoTask,
+  dbGetUserTodo,
+  dbCreateUserList,
 };

@@ -10,20 +10,27 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Lists, Users }) {
-      UsersLists.hasOne(Lists, {
-        foreignKey: 'id',
+      Users.belongsToMany(Lists, {
+        through: UsersLists,
+        foreignKey: 'listId',
         onDelete: 'cascade',
       });
-      UsersLists.hasOne(Users, {
-        foreignKey: 'id',
+      Lists.belongsToMany(Users, {
+        through: UsersLists,
+        foreignKey: 'userId',
         onDelete: 'cascade',
       });
-      // define association here
     }
   }
   UsersLists.init({
-    userId: DataTypes.INTEGER,
-    listId: DataTypes.INTEGER,
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   field: 'userId',
+    // },
+    // listId: {
+    //   type: DataTypes.INTEGER,
+    //   field: 'listId',
+    // },
   }, {
     sequelize,
     modelName: 'UsersLists',

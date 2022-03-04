@@ -1,4 +1,3 @@
-// const { getExpectedToDoList } = require('../../src/constants/resultToDo');
 const { Tasks, Lists } = require('../../models');
 const {
   dbGetTodoList, dbCreateTodoList, dbGetTodoTask, dbCreateTodoTask,
@@ -263,6 +262,70 @@ describe('dbCreateTodoTask function', () => {
   test('should throw invalid input type when boolean is given as input for listId', async () => {
     try {
       await dbCreateTodoTask('Rice', { a: 5 });
+    } catch (err) {
+      expect(err.message).toBe('Invalid input type for listId');
+    }
+  });
+});
+
+xdescribe('dbUpdateTodoTask function', () => {
+  test('should add the given task to the tasks table when proper string input is given', async () => {
+    const toDoMock = jest.spyOn(Tasks, 'update').mockResolvedValue({});
+    await dbUpdateTodoTask('test task', '1');
+    expect(toDoMock).toHaveBeenCalled();
+  });
+  test('should throw error when empty string is given as input', async () => {
+    try {
+      await dbUpdateTodoTask('', '');
+    } catch (err) {
+      expect(err.message).toBe('Empty input is not accepted');
+    }
+  });
+  test('should throw invalid input type when number is given as input for taskName', async () => {
+    try {
+      await dbUpdateTodoTask(5, '1');
+    } catch (err) {
+      expect(err.message).toBe('Invalid input type for taskName');
+    }
+  });
+  test('should throw invalid input type when boolean is given as input for taskName', async () => {
+    try {
+      await dbUpdateTodoTask(false, '1');
+    } catch (err) {
+      expect(err.message).toBe('Invalid input type for taskName');
+    }
+  });
+  test('should throw invalid input type when array is given as input for taskName', async () => {
+    try {
+      await dbUpdateTodoTask([5], '1');
+    } catch (err) {
+      expect(err.message).toBe('Invalid input type for taskName');
+    }
+  });
+  test('should throw invalid input type when object is given as input for taskName', async () => {
+    try {
+      await dbUpdateTodoTask({ a: 5 }, '1');
+    } catch (err) {
+      expect(err.message).toBe('Invalid input type for taskName');
+    }
+  });
+  test('should throw invalid input type when boolean is given as input for listId', async () => {
+    try {
+      await dbUpdateTodoTask('Rice', true);
+    } catch (err) {
+      expect(err.message).toBe('Invalid input type for listId');
+    }
+  });
+  test('should throw invalid input type when array is given as input for listId', async () => {
+    try {
+      await dbUpdateTodoTask('Rice', [5]);
+    } catch (err) {
+      expect(err.message).toBe('Invalid input type for listId');
+    }
+  });
+  test('should throw invalid input type when boolean is given as input for listId', async () => {
+    try {
+      await dbUpdateTodoTask('Rice', { a: 5 });
     } catch (err) {
       expect(err.message).toBe('Invalid input type for listId');
     }

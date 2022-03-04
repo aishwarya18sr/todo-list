@@ -1,6 +1,7 @@
 const {
   dbGetTodoList, dbCreateTodoList, dbGetTodoTask,
-  dbCreateTodoTask, dbGetTodoTaskById, dbUpdateTodoTask, dbDeleteTodoTask,
+  dbCreateTodoTask, dbGetTodoTaskById, dbUpdateTodoTask,
+  dbDeleteTodoTask, dbGetUserTodo, dbCreateUserList,
 } = require('../utils/dbOperations.utils');
 
 const getTodoList = async () => {
@@ -42,6 +43,17 @@ const deleteTodoTask = async (taskId) => {
   return todoTask;
 };
 
+const getUserTodo = async (userId) => {
+  const todoTaskList = await dbGetUserTodo(userId);
+  return todoTaskList;
+};
+
+const createUserList = async (userId, listId) => {
+  await dbCreateUserList(userId, listId);
+  const todoUserList = await getUserTodo(userId);
+  return todoUserList;
+};
+
 module.exports = {
   getTodoList,
   createTodoList,
@@ -50,4 +62,6 @@ module.exports = {
   getTodoTaskById,
   updateTodoTask,
   deleteTodoTask,
+  getUserTodo,
+  createUserList,
 };

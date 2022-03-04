@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       Lists.hasMany(Tasks, {
         foreignKey: 'id',
       });
-      Lists.belongsToMany(Users, { through: UsersLists }, {
-        foreignKey: 'id',
-      });
     }
   }
   Lists.init({
