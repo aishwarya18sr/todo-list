@@ -1,0 +1,543 @@
+{
+	"info": {
+		"_postman_id": "a5c926c1-149b-4af3-8348-51fb6696d91a",
+		"name": "todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get all tasks of a given list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Oil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all tasks of a given list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Oil\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tasks/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "388"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"184-SY8Bb3sBWr7IHfYJOVjF4d2HHV0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 10:51:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"toDoTask\": [\n        {\n            \"id\": 1,\n            \"listName\": \"Grocery Shopping\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n            \"Tasks\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Rice\",\n                    \"ListId\": 1,\n                    \"createdAt\": \"2022-03-03T07:21:40.436Z\",\n                    \"updatedAt\": \"2022-03-03T07:21:40.436Z\",\n                    \"list_id\": 1\n                },\n                {\n                    \"id\": 3,\n                    \"name\": \"Oil\",\n                    \"ListId\": 1,\n                    \"createdAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"updatedAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"list_id\": 1\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create task in given list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Oil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create task in given list",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Oil\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tasks/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "388"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"184-SY8Bb3sBWr7IHfYJOVjF4d2HHV0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 10:50:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"toDoTask\": [\n        {\n            \"id\": 1,\n            \"listName\": \"Grocery Shopping\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n            \"Tasks\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Rice\",\n                    \"ListId\": 1,\n                    \"createdAt\": \"2022-03-03T07:21:40.436Z\",\n                    \"updatedAt\": \"2022-03-03T07:21:40.436Z\",\n                    \"list_id\": 1\n                },\n                {\n                    \"id\": 3,\n                    \"name\": \"Oil\",\n                    \"ListId\": 1,\n                    \"createdAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"updatedAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"list_id\": 1\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update task",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Apples\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update task",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Apples\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/tasks/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "390"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"186-KPAFPnZT6ykx4feNZaYoDRXOZSc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:18:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"toDoTask\": [\n        {\n            \"id\": 1,\n            \"listName\": \"Grocery Shopping\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n            \"Tasks\": [\n                {\n                    \"id\": 3,\n                    \"name\": \"Oil\",\n                    \"ListId\": 1,\n                    \"createdAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"updatedAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"list_id\": 1\n                },\n                {\n                    \"id\": 1,\n                    \"name\": \"Apples\",\n                    \"ListId\": 1,\n                    \"createdAt\": \"2022-03-03T07:21:40.436Z\",\n                    \"updatedAt\": \"2022-03-03T11:18:10.753Z\",\n                    \"list_id\": 1\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a task",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/tasks/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tasks",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-dnKl0gnCqU+hbYT+RyzjKwSpGf4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:28:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"todoTask\": [\n        {\n            \"id\": 1,\n            \"listName\": \"Grocery Shopping\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n            \"Tasks\": [\n                {\n                    \"id\": 3,\n                    \"name\": \"Oil\",\n                    \"ListId\": 1,\n                    \"createdAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"updatedAt\": \"2022-03-03T10:50:32.143Z\",\n                    \"list_id\": 1\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/lists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"lists",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all lists",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/lists/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"lists",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "345"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"159-Q5WiHiScv/8tGfUtwHN3Lmj/tdI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:34:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"toDoList\": [\n        {\n            \"id\": 1,\n            \"listName\": \"Grocery Shopping\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\"\n        },\n        {\n            \"id\": 2,\n            \"listName\": \"Personal\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\"\n        },\n        {\n            \"id\": 6,\n            \"listName\": \"Work\",\n            \"createdAt\": \"2022-03-03T07:54:45.594Z\",\n            \"updatedAt\": \"2022-03-03T07:54:45.594Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Soceity\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/lists/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"lists",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create a new list",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Soceity\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/lists/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"lists",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "453"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c5-B+cBNeZ0G3sSwavfIhswoHjr+dY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:43:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"toDoList\": [\n        {\n            \"id\": 1,\n            \"listName\": \"Grocery Shopping\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\"\n        },\n        {\n            \"id\": 2,\n            \"listName\": \"Personal\",\n            \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n            \"updatedAt\": \"2022-03-03T07:21:40.429Z\"\n        },\n        {\n            \"id\": 6,\n            \"listName\": \"Work\",\n            \"createdAt\": \"2022-03-03T07:54:45.594Z\",\n            \"updatedAt\": \"2022-03-03T07:54:45.594Z\"\n        },\n        {\n            \"id\": 9,\n            \"listName\": \"Soceity\",\n            \"createdAt\": \"2022-03-03T11:43:56.281Z\",\n            \"updatedAt\": \"2022-03-03T11:43:56.281Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Lists",
+			"item": []
+		}
+	]
+}
