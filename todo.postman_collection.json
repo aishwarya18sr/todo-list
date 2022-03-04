@@ -709,6 +709,179 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all tasks and lists of a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all tasks and lists of a user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "393"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"189-JbU5cufwtJTrnIrDw+rxaaGVLm4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Mar 2022 18:11:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"toDoTaskList\": [\n        [\n            {\n                \"id\": 1,\n                \"listName\": \"Grocery Shopping\",\n                \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n                \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n                \"Tasks\": []\n            }\n        ],\n        [\n            {\n                \"id\": 2,\n                \"listName\": \"Personal\",\n                \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n                \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n                \"Tasks\": [\n                    {\n                        \"id\": 2,\n                        \"name\": \"Yoga\",\n                        \"ListId\": 2,\n                        \"createdAt\": \"2022-03-03T07:21:40.436Z\",\n                        \"updatedAt\": \"2022-03-03T07:21:40.436Z\",\n                        \"list_id\": 2\n                    }\n                ]\n            }\n        ]\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Give list access to a user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"listId\":\"6\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Give list access to a user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"listId\":\"6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "511"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ff-lQ6nexJ0oS8M60HAY21MnYAp+SY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Mar 2022 18:11:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"todoUserList\": [\n        [\n            {\n                \"id\": 1,\n                \"listName\": \"Grocery Shopping\",\n                \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n                \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n                \"Tasks\": []\n            }\n        ],\n        [\n            {\n                \"id\": 2,\n                \"listName\": \"Personal\",\n                \"createdAt\": \"2022-03-03T07:21:40.429Z\",\n                \"updatedAt\": \"2022-03-03T07:21:40.429Z\",\n                \"Tasks\": [\n                    {\n                        \"id\": 2,\n                        \"name\": \"Yoga\",\n                        \"ListId\": 2,\n                        \"createdAt\": \"2022-03-03T07:21:40.436Z\",\n                        \"updatedAt\": \"2022-03-03T07:21:40.436Z\",\n                        \"list_id\": 2\n                    }\n                ]\n            }\n        ],\n        [\n            {\n                \"id\": 6,\n                \"listName\": \"Work\",\n                \"createdAt\": \"2022-03-03T07:54:45.594Z\",\n                \"updatedAt\": \"2022-03-03T07:54:45.594Z\",\n                \"Tasks\": []\n            }\n        ]\n    ]\n}"
+						}
+					]
+				}
+			]
 		}
 	]
 }
