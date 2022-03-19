@@ -1,5 +1,5 @@
 const {
-  Tasks, Lists, Users, UsersLists,
+  Tasks, Lists, UsersLists,
 } = require('../../models');
 
 const dbGetTodoList = async () => {
@@ -16,6 +16,7 @@ const dbCreateTodoList = async (givenName) => {
   } else if (typeof givenName !== 'string') {
     throw new Error('Invalid input type for listName');
   }
+
   const result = await Lists.create({ listName: givenName });
   return result;
 };
@@ -26,11 +27,15 @@ const dbGetTodoTask = async (listId) => {
   } else if (typeof listId !== 'string' && typeof listId !== 'number') {
     throw new Error('Invalid input type for listId');
   }
-  const requiredTodoTask = await Lists.findAll({
-    include: Tasks,
-    where: {
-      id: listId,
+  const requiredTodoTask = await Tasks.findAll({
+    include: {
+      model: Lists,
     },
+    attributes: ['id', 'name'],
+    where: {
+      ListId: listId,
+    },
+    order: ['id'],
   });
   if (requiredTodoTask.length === 0) {
     return 'No records found';
@@ -99,27 +104,27 @@ const dbDeleteTodoTask = async (taskId) => {
   return result;
 };
 
-const dbGetUserTodo = async (userId) => {
-  if (userId === '') {
-    throw new Error('Empty input is not accepted');
-  } else if (typeof userId !== 'string' && typeof userId !== 'number') {
-    throw new Error('Invalid input type for userId');
-  }
-  const requiredList = await UsersLists.findAll({
-    where: {
-      userId,
-    },
-  });
-  let listId;
-  const requiredTodoTaskList = [];
-  console.log(requiredList);
-  for (const [, value] of Object.entries(requiredList)) {
-    listId = value.dataValues.listId;
-    const todo = await dbGetTodoTask(listId);
-    requiredTodoTaskList.push(todo);
-  }
-  return requiredTodoTaskList;
-};
+// const dbGetUserTodo = async (userId) => {
+//   if (userId === '') {
+//     throw new Error('Empty input is not accepted');
+//   } else if (typeof userId !== 'string' && typeof userId !== 'number') {
+//     throw new Error('Invalid input type for userId');
+//   }
+//   const requiredList = await UsersLists.findAll({
+//     where: {
+//       userId,
+//     },
+//   });
+//   let listId;
+//   const requiredTodoTaskList = [];
+//   console.log(requiredList);
+//   for (const [, value] of Object.entries(requiredList)) {
+//     listId = value.dataValues.listId;
+//     const todo = await dbGetTodoTask(listId);
+//     requiredTodoTaskList.push(todo);
+//   }
+//   return requiredTodoTaskList;
+// };
 
 const dbCreateUserList = async (userId, listId) => {
   if (userId === '' || listId === '') {
@@ -141,6 +146,5 @@ module.exports = {
   dbGetTodoTaskById,
   dbUpdateTodoTask,
   dbDeleteTodoTask,
-  dbGetUserTodo,
   dbCreateUserList,
 };
