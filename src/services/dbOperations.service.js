@@ -33,13 +33,13 @@ const createTodoTask = async (taskName, listId) => {
 
 const updateTodoTask = async (taskId, taskName) => {
   await dbUpdateTodoTask(taskId, taskName);
-  const todoTask = await dbGetTodoTask(taskId);
+  const todoTask = await dbGetTodoTaskById(taskId);
   return todoTask;
 };
 
 const deleteTodoTask = async (taskId) => {
   await dbDeleteTodoTask(taskId);
-  const todoTask = await dbGetTodoTask(taskId);
+  const todoTask = await dbGetTodoTaskById(taskId);
   return todoTask;
 };
 
